@@ -2,8 +2,8 @@
 
 if isatty
     function _svn_prompt.pwd_watcher -v PWD
-        if which svn 2>&1 >/dev/null
-            if svn info 2>&1 >/dev/null
+        if which svn >/dev/null ^&1
+            if svn info >/dev/null ^&1
                 fish_prompt_breadcrumb add _svn_prompt.svn_status_seg
             else
                 fish_prompt_breadcrumb rm _svn_prompt.svn_status_seg

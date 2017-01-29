@@ -2,8 +2,8 @@
 
 if isatty
     function _bk_prompt.pwd_watcher -v PWD
-        if which bk 2>&1 >/dev/null
-            if bk root 2>&1 >/dev/null
+        if which bk >/dev/null ^&1
+            if bk root >/dev/null ^&1
                 fish_prompt_breadcrumb add _bk_prompt.bk_status_seg
             else
                 fish_prompt_breadcrumb rm _bk_prompt.bk_status_seg
