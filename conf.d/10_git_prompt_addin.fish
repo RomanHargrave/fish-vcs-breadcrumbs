@@ -2,10 +2,12 @@
 
 if isatty
     function _git_prompt.pwd_watcher -v PWD
-        if git rev-parse --git-dir >/dev/null ^/dev/null
-            fish_prompt_breadcrumb add _git_prompt.git_status_seg
-        else
-            fish_prompt_breadcrumb rm _git_prompt.git_status_seg
+        if which git 2>&1 >/dev/null
+            if git rev-parse --git-dir 2>&1 >/dev/null
+                fish_prompt_breadcrumb add _git_prompt.git_status_seg
+            else
+                fish_prompt_breadcrumb rm _git_prompt.git_status_seg
+            end
         end
     end
 end
