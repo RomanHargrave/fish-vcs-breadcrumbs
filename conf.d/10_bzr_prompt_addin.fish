@@ -11,7 +11,7 @@ if isatty
         end
     end
 
-    function _bzr_prompt.bzrr_status_seg
+    function _bzr_prompt.bzr_status_seg
         printf 'bzr:%s' (bzr revno)
     end
 end
