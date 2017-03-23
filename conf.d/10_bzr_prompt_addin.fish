@@ -12,6 +12,8 @@ if isatty
     end
 
     function _bzr_prompt.bzr_status_seg
+        set_color green
         printf 'bzr:%s' (bzr revno)
+        set_color normal
     end
 end
