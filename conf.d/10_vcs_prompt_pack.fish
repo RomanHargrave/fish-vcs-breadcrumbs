@@ -1,15 +1,15 @@
 # Watch PWD to check for bitkeeper dir entry on dir change
 
-function _bk_or_git_prompt.is_pristine
-    string match -r '.+-dirty' $_vcs_revision
+function _bk_or_git_prompt.is_pristine -a revno
+    not string match -r '.+-dirty' $revno
 end
 
 if which bk >/dev/null ^&1 
-    __vcs_crumb.define bk 'bk root' 'bk describe' _bk_or_git_prompt.is_pristine
+    __vcs_crumb.define bk 'bk root' 'bk describe' '_bk_or_git_prompt.is_pristine "%s"'
 end
 
 if which git >/dev/null ^&1
-    __vcs_crumb.define git 'git rev-parse --git-dir' 'git describe --always --tag --dirty' _bk_or_git_prompt.is_pristine
+    __vcs_crumb.define git 'git rev-parse --git-dir' 'git describe --always --tag --dirty' '_bk_or_git_prompt.is_pristine "%s"'
 end
 
 if which svn >/dev/null ^&1
