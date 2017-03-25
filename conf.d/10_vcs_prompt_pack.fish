@@ -1,7 +1,7 @@
 # Watch PWD to check for bitkeeper dir entry on dir change
 
 function _bk_or_git_prompt.is_pristine
-   string match -r '.+-dirty' $_vcs_revision
+    string match -r '.+-dirty' $_vcs_revision
 end
 
 if which bk >/dev/null ^&1 
