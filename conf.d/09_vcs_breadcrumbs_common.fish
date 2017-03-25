@@ -26,7 +26,7 @@ if isatty
 
         # Array expansion will erase the \30 if the crumb list is empty
         set _tmp_crumbs_head $__vcs_crumbs\30 
-        set __vcs_crumbs "$_tmp_crumbs_head$vcs_check_in_tree"\31"$_crumb_impl_name"
+        set __vcs_crumbs "$_tmp_crumbs_head$_c_present"\31"$_crumb_impl_name"
     end
 
     function __vcs_crumb._pwd_watcher -v PWD
