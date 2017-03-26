@@ -4,6 +4,8 @@ set ___vcs_crumb_define_FN __vcs_crumb.define
 
 if isatty 
 
+    set __vcs_crumbs
+
     set _vcs_crumb_color_clean green
     set _vcs_crumb_color_dirty red
 
