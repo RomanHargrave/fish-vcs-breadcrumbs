@@ -15,7 +15,3 @@ end
 if which svn >/dev/null ^&1
     __vcs_crumb.define svn 'svn info' 'svn info --show-item revision' true
 end
-
-if which bzr >/dev/null ^&1
-    __vcs_crumb.define bzr 'bzr revno' 'bzr revno' true 
-end
