@@ -14,8 +14,8 @@ if isatty
 
         function $_crumb_impl_name -V vcs_name -V _c_revision -V _c_pristine --description "Breadcrumb generated for $vcs_name"
             # revision exported for dirty check command
-            set _vcs_revision (eval $_c_revision ^/dev/null)
-            if eval (printf $_c_pristine $_vcs_revision) >/dev/null ^&1
+            set _vcs_revision (eval $_c_revision 2>/dev/null)
+            if eval (printf $_c_pristine $_vcs_revision) >/dev/null 2>&1
                 set_color $_vcs_crumb_color_clean
             else
                 set_color $_vcs_crumb_color_dirty
@@ -35,7 +35,7 @@ if isatty
             set vcs_validate    $vcs_def_read[1]
             set vcs_crumb       $vcs_def_read[2]
 
-            if eval $vcs_validate >/dev/null ^&1
+            if eval $vcs_validate >/dev/null 2>&1
                 fish_prompt_breadcrumb add $vcs_crumb
             else
                 fish_prompt_breadcrumb rm $vcs_crumb
